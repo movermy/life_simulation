@@ -68,6 +68,6 @@ if __name__ == "__main__":
     L = Life()
     L.build_board()
     L.print_board()
-    for d in range(0,200):
+    for d in range(0,2000):
         L.one_day()
     L.print_board()

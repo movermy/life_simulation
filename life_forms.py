@@ -10,7 +10,11 @@ class Lifeform:
 
     def __str__(self):
 
-        energy_string = str(self.energy)
+        if self.energy <= 999:
+            energy_string = str(self.energy)
+        else:
+            energy_string = '999'
+
         return self.letter + "0"*(3-len(energy_string)) + energy_string
 
 

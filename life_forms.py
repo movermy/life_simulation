@@ -22,6 +22,10 @@ class Plant(Lifeform):
         self.energy = random.randrange(3, 15)
         self.location = location
 
+        self.growth_cost = 2 #joule/mm
+        self.growth_rate = random.randrange(1,3) #mm per day
+        self.height = random.randrange(1,6) #mm
+
     def be_grazed(self, graze_amount):
 
         if graze_amount >= self.energy:
@@ -30,6 +34,13 @@ class Plant(Lifeform):
         else:
             self.energy = self.energy - graze_amount
             return graze_amount
+
+    def live_a_day(self, energy_from_sun):
+
+        self.energy += energy_from_sun
+        self.height = self.height + self.growth_rate
+        self.energy -= self.growth_rate * self.growth_cost
+
 
     def report(self):
 
